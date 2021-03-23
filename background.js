@@ -108,3 +108,60 @@ function handleActivated(activeInfo){
 }
 
 chrome.tabs.onActivated.addListener(handleActivated);
+
+var blockedSites = {};
+//var specificUrls = {};
+
+getBlockedSites();
+
+function getBlockedSites() {
+	blockedSites = {};
+	chrome.storage.sync.get("settings", function(data) {
+		var blockedSitesText = data.settings;
+		console.log(blockedSitesText);
+		if(blockedSitesText != null){
+			var blockedSitesArray = blockedSitesText.split("\n");
+			console.log(blockedSitesArray[0]);
+			for(let blockedSiteIndex in blockedSitesArray) {
+				let blockedSite = blockedSitesArray[blockedSiteIndex];
+				if(blockedSite != null){
+					var blockedSiteInfo = blockedSite.split(",");
+					console.log(blockedSite);
+					blockedSites[blockedSiteInfo[0]] = blockedSiteInfo[1];
+				}
+			}
+		}
+	});
+}
+
+function handleSettingsChanged(changes) {
+	getBlockedSites();
+}
+
+chrome.storage.onChanged.addListener(handleSettingsChanged);
+
+function checkBlocked() {
+	if(active){
+		// chrome.tabs.query({
+	 //  		active: true,
+	 //  		currentWindow: true
+		// }, function(tabs) {
+	 // 		let tab = tabs[0];
+	 // 		let url = trimUrl(tab.url);
+	 		if(blockedSites[currentUrl]) {
+	 			var index = urls.indexOf(currentUrl);
+	 			var timeArray = blockedSites[currentUrl].split(":");
+	 			console.log(startTime);
+	 			console.log(Date.now());
+	 			console.log(times[index]);
+	 			if(Date.now() - startTime + times[index] * 1000 >= parseInt(timeArray[0]) * 3600000 + parseInt(timeArray[1]) * 60000 + parseInt(timeArray[2]) * 1000) {
+	 				console.log(Date.now() - startTime + times[index]);
+	 				console.log("blocked");
+	 				chrome.tabs.update({url: chrome.extension.getURL('blocked.html')});
+	 			}
+	 		}
+		// });
+	}
+}
+
+setInterval(checkBlocked, 1000);
