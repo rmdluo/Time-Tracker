@@ -118,15 +118,12 @@ function getBlockedSites() {
 	blockedSites = {};
 	chrome.storage.sync.get("settings", function(data) {
 		var blockedSitesText = data.settings;
-		console.log(blockedSitesText);
 		if(blockedSitesText != null){
 			var blockedSitesArray = blockedSitesText.split("\n");
-			console.log(blockedSitesArray[0]);
 			for(let blockedSiteIndex in blockedSitesArray) {
 				let blockedSite = blockedSitesArray[blockedSiteIndex];
 				if(blockedSite != null){
 					var blockedSiteInfo = blockedSite.split(",");
-					console.log(blockedSite);
 					blockedSites[blockedSiteInfo[0]] = blockedSiteInfo[1];
 				}
 			}
