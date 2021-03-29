@@ -5,6 +5,8 @@ function getSettings() {
 		this.settings = data.settings;
 		if(this.settings != null){
 			blockedSites.value = this.settings;
+		} else {
+			chrome.storage.sync.set({"settings": ""});
 		}
 	});
 }
