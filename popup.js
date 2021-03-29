@@ -95,3 +95,28 @@ function setRotation(element, rotationRatio) {
 }
 
 setClock();
+
+function setDigitalClock() {
+	const currentDate = new Date();
+	let timeString = " AM";
+	let hour = currentDate.getHours();
+	let minute = currentDate.getMinutes();
+
+	if(minute < 10) {
+		timeString = ":0" + String(minute) + timeString;
+	} else {
+		timeString = ":" + String(minute) + timeString;
+	}
+
+	if(hour > 12) {
+		timeString = String(hour - 12) + timeString.substring(0, 3) + " PM";
+	} else {
+		timeString = String(hour) + timeString;
+	}
+
+	document.getElementById("time").innerHTML=timeString;
+}
+
+setInterval(setDigitalClock, 1000);
+
+setDigitalClock();
