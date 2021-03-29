@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="options.css">
 	<titie>Time Tracker Options</titie>
 </head>
 
 <body>
-	<p>Enter the websites and time limits in the following format:</p>
-	<p>xxx.xxxxxxxxx.xxx, hh:mm:ss</p>
-	<p>Only one site per line, please.</p>
-	<textarea id="blockedSites" rows="25" cols="30"></textarea>
-	<center> 
-		<a href="popup.html"><button id="save">Save</button></a>
-		<a href="popup.html"><button id="cancel">Cancel</button></a>
-	</center>
+	<div id="container">
+		<div id="left-div">
+			<div id="taskboard">
+				<p>Taskboard</p>
+			</div>
+
+			<div id="workperiods">
+				<p>Work Periods</p>
+			</div>
+
+			<div id="blockedsites">
+				<p>Blocked Sites</p>
+			</div>
+		</div>
+
+		<div id="right-div">
+			<div id="instructions-container">
+				<p>Enter the websites and time limits in box below with the following format:</p>
+				<p>xxx.xxxxxxxxx.xxx, hh:mm:ss</p>
+				<p>Only one site per line, please.</p>
+			</div>
+
+			<div id="textarea-container">
+				<textarea id="blockedSites"></textarea>
+				<center> 
+					<button id="save">Save</button>
+					<button id="cancel">Cancel</button>
+				</center>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="options.js"></script>
 </html>
