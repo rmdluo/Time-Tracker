@@ -3,11 +3,6 @@
   font-family: Gotham Rounded, sans-serif;
 }
 
-table, th, td {
-	width: 250px;
-	height: 250px;
-}
-
 .clock {
 	width: 200px;
 	height: 200px;
@@ -79,4 +74,9 @@ table, th, td {
 	width: 10px;
 	height: 35%;
 	background-color: black;
+}
+
+#time {
+	font-size: 16px;
+	line-height: 0.01;
 }
