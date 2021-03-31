@@ -20,7 +20,7 @@
   		   "128": "icon128.png"
   },
   "options_ui": {
-    "page": "options.html"
+    "page": "options-blocked-sites.html"
   },
   "web_accessible_resources": [
     "blocked.html"
