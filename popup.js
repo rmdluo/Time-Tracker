@@ -122,5 +122,5 @@ setInterval(setDigitalClock, 1000);
 setDigitalClock();
 
 document.getElementById("options").onclick = function() {
-	window.open("options.html");
+	window.open("options-blocked-sites.html");
 }
