@@ -20,3 +20,7 @@ document.getElementById("save").onclick = function() {
 document.getElementById("cancel").onclick = function() {
 	getSettings();
 };
+
+document.getElementById("workperiods").onclick = function() {
+	window.location.assign("options-work-periods.html");
+};
