@@ -22,5 +22,5 @@ document.getElementById("cancel").onclick = function() {
 };
 
 document.getElementById("workperiods").onclick = function() {
-	window.location.assign("options-work-periods.html");
+	window.location.assign("/options/options-work-periods.html");
 };
