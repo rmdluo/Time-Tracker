@@ -41,3 +41,16 @@ div {
 	display: flex;
 	flex-direction: column;
 }
+
+.menu {
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+.menu:hover {
+	background-color: #d3d3d3;
+}
+
+a {
+	text-decoration: none;
+}
